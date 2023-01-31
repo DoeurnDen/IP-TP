@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPLOADEDIMAGE</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E90FF;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 500px;
+            height: 600px;
+            background-color: rgb(128, 128, 128);
+        }
+        .store-canvas{
+            width: 95%;
+            height: 80%;
+            /* background-color: brown; */
+        }
+        .store-input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 95%;
+            height: 15%;
+            background-color: aquamarine;
+        }
+        #canvas{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="store-canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="store-input">
+            <label for="haha">Canvas👻: Insert me an image please!</label><br>
+            <input type="file" id="input">
+        </div>
+    </div>
+    <script>
+
+        const image = document.querySelector('#input');
+        const canvas = document.querySelector('#canvas');
+
+        const ctx = canvas.getContext('2d');
+        image.addEventListener('change',(e)=>{
+            console.log(canvas.height, canvas.width);
+            const myFile = image.files[0];
+            console.log(myFile.name);
+            const img = new Image();
+            img.src = URL.createObjectURL(myFile);
+            img.onload = function(){
+                console.log(img.height, img.width);
+                // canvas.height = img.height;
+                // canvas.width = img.width;
+                ctx.drawImage(img,0,0,canvas.width,canvas.height);
+            }
+        })
+    </script>
+</body>
+</html>

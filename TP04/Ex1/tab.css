@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .container {
+  width: 50%;
+  height: 50%;
+  border: 5px solid black;
+  background-color: #f1f5f8;
+  display: flex;
+}
+body .container .content1 {
+  width: 50%;
+  height: 100%;
+}
+body .container .content1 .header {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .container .content1 .image {
+  width: 90%;
+  height: 60%;
+  margin: 5%;
+}
+body .container .content1 .image #img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+body .container .content2 {
+  width: 50%;
+  height: 100%;
+  padding: 5%;
+  border-radius: 5px;
+}
+body .container .content2 .tabs {
+  width: 100%;
+  height: 20%;
+  border-radius: 5px;
+  background-color: #dbe2ec;
+  display: flex;
+}
+body .container .content2 .tabs h3 {
+  width: 33.33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+body .container .content2 .tabs h3:hover {
+  color: white;
+  background-color: #737578;
+}
+body .container .content2 .tabs .active {
+  background-color: #f5f5f5;
+}
+body .container .content2 .tab-content {
+  width: 100%;
+  height: 70%;
+}
+body .container .content2 .tab-content div {
+  display: none;
+}
+body .container .content2 .tab-content .active {
+  display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+  body .container {
+    flex-direction: column;
+  }
+  body .container .content1 {
+    width: 100%;
+    height: 50%;
+  }
+  body .container .content2 {
+    width: 100%;
+    height: 50%;
+  }
+}/*# sourceMappingURL=tab.css.map */

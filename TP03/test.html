@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+    <script src="../TP02/tailwindcss.js"></script>
+</head>
+<body class="w-full h-[1000px] flex justify-center items-center">
+    <div class="containerList w-[600px] h-[600px] border-2">
+        <div class="w-full h-[50px] flex justify-center items-center">
+            <div>To-do List with LocalStorage</div>
+        </div>
+        <div class=" w-full h-20 flex bg-[#d9d9d9]">
+            <div class="w-[25%] h-full flex flex-col justify-center">
+                <div>Task title</div>
+                <div class="w-full">
+                    <input type="text" placeholder="Title" class="w-[90%] mx-1" id="title">
+                </div>
+            </div>
+            <div class="w-[25%] h-full flex flex-col justify-center">
+                <div>Assingnee</div>
+                <div>
+                    <input type="text" placeholder="Name" class="w-[90%] mx-1" id="assignee">
+                </div>
+            </div>
+            <div class="w-[25%] h-full flex flex-col justify-center">
+                <div>Dateline</div>
+                <div class="flex">
+                    <input type="date" class="w-[90%] mx-1" id="dateline">                      
+                </div>
+            </div>
+            <div class="w-[25%] h-full flex justify-center items-center">
+                <button  onclick="test()" class=" w-10 bg-gray-400 hover:bg-blue-400" id="add">Add</button>
+            </div>
+        </div>
+        <div class="flex w-full h-8 items-center border-2 rounded-lg my-2 task">
+            <div class="w-[25%] flex justify-start">
+                <div class="list">Create project</div>
+            </div>
+            <div class="w-[25%]  flex justify-start">
+                <div class="list">Tola</div>
+            </div>
+            <div class="w-[25%]  flex justify-start">
+                <div class="list">13/01/2023</div>
+            </div>
+            <div class="w-[25%] flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+            </svg>
+        </div>
+    </div>
+</div>
+<script>
+    let list = document.querySelector(".containerList");
+    let add = document.querySelector("#add");
+    
+    let taskArr = window.localStorage.getItem('Tasks')==null? []:JSON.parse(window.localStorage.getItem('Tasks'));
+    
+    const save=()=>{
+        window.localStorage.setItem('Tasks',JSON.stringify(taskArr))
+    }
+    window.addEventListener('load',()=>{
+        // save()
+    })
+    const test=()=>{
+        
+        taskArr.push(
+        {
+            name: document.querySelector('#title').value,
+            assignee: document.querySelector('#assignee').value, 
+            date: document.querySelector('#dateline').value 
+        }
+        )
+        save()
+        renderList();
+    }
+    
+    function renderList() {
+        let listContent = "";
+        document.querySelectorAll('.task').forEach((item)=>{item.remove()})
+        taskArr.forEach(item => {
+            listContent += `
+            <div class="flex w-full h-8 items-center border-2 rounded-lg my-2 task">
+                <div class="w-[25%] flex justify-start">
+                    <div class="list">${item.name}</div>
+                </div>
+                <div class="w-[25%]  flex justify-start">
+                    <div class="list">${item.assignee}</div>
+                </div>
+                <div class="w-[25%]  flex justify-start">
+                    <div class="list">${item.date}</div>
+                </div>
+                <div class="w-[25%] flex justify-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+            </div>
+        </div>
+        `;
+        
+    });
+    // console.log(listContent)
+    list.innerHTML+= listContent;
+    
+}
+renderList();
+function delet(){
+    mainTask = document.querySelectorAll('.task')
+    mainTask.forEach((item)=>{
+        item.addEventListener('click',(e)=>{
+            const target=e.target;
+            if(target.classList.contains('delete') || target.classList.contains('delBtn')){
+                item.remove()
+                Tasks = Tasks.filter((data)=>{
+                    if(data.id != target.getAttribute('data-id')){
+                        return Tasks;
+                    }
+                })
+                Sava();
+            }
+        })
+    })
+}
+const Save=()=>{
+    window.localStorage.setItem('Tasks',JSON.stringify(Tasks))
+}
+</script>
+</body>
+</html>
