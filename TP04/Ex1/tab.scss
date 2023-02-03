@@ -4,15 +4,15 @@
     box-sizing: border-box;
 }
 body{
-    // width: 100vw;
-    // height: 100vh;
+    width: 100vw;
+    height: 100vh;
     // background-color: aquamarine;
-    margin-top: 20%;
     display: flex;
     justify-content: center;
+    align-items: center;
     .container{
         width: 50%;
-        height: 60%;
+        height: 70%;
         border: 5px solid black;
         background-color: #f1f5f8;
         display: flex;
