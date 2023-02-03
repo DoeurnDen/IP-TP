@@ -10,8 +10,13 @@ decrease.addEventListener("click", ()=>{
     let output = Number(result.innerText) - 1;
     result.innerText = output;
 })
+
 reset.addEventListener("click",()=>{
     result.innerText = 0;
+    decrease.style.backgroundColor = "";
+    decrease.style.color = ""; 
+    increase.style.backgroundColor = "";
+    increase.style.color = "";
 })
 increase.addEventListener("click", ()=>{
     increase.style.backgroundColor = "black";
@@ -20,21 +25,21 @@ increase.addEventListener("click", ()=>{
     result.innerText = output;
 })
 
-class Counter{
-    number = 0
-    constructor(){
+// class Counter{
+//     number = 0
+//     constructor(){
 
-    }
+//     }
 
-    decrease(){
+//     decrease(){
+        
+//     }
 
-    }
+//     increase(){
 
-    increase(){
+//     }
 
-    }
+//     reset(){
 
-    reset(){
-
-    }
-}
+//     }
+// }

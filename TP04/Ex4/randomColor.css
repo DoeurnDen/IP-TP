@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #f5f6f6;
+}
+body .container {
+  width: 50vmin;
+  height: 70vmin;
+  background-color: rgb(125, 159, 188);
+}
+body .container .title {
+  width: 100%;
+  height: 10%;
+  color: #51a9ea;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+body .container .generate-color {
+  width: 100%;
+  height: 30%;
+  background-color: #2336fb;
+}
+body .container .generate-color .text {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+body .container .generate-color .text h1 {
+  text-align: center;
+}
+body .container .generate-color .button {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+body .container .generate-color .button button {
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 6%;
+}
+body .container .generate-color .button :first-child {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+body .container .generate-color .button :nth-child(2) {
+  background-color: transparent;
+}
+body .container #color-number {
+  width: 100%;
+  height: 30%;
+  background-color: #ffffff;
+}
+body .container #end-color-show {
+  width: 100%;
+  height: 30%;
+  background-color: #2336fb;
+}/*# sourceMappingURL=randomColor.css.map */

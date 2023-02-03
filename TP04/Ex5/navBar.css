@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+.container .nav-bar {
+  width: 100%;
+  height: 20%;
+  padding: 0 2vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .nav-bar .content {
+  display: flex;
+  gap: 5%;
+}/*# sourceMappingURL=navBar.css.map */
