@@ -1,0 +1,29 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+body .container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+body .container .input-data {
+  width: 20%;
+  height: 100%;
+  background-color: #ebebeb;
+  display: flex;
+  justify-content: center;
+}
+body .container .show-data {
+  width: 80%;
+  height: 100%;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}/*# sourceMappingURL=crud.css.map */

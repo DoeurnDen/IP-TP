@@ -1,0 +1,36 @@
+body{
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1E90FF;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 600px;
+    background-color: rgb(128, 128, 128);
+}
+.store-canvas{
+    width: 95%;
+    height: 80%;
+    /* background-color: brown; */
+}
+.store-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 15%;
+    background-color: aquamarine;
+}
+#canvas{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
