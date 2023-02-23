@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body .container {
+  width: 80%;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+body .container .header {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+body .container .header :nth-child(3) select {
+  padding: 10px 5rem;
+  border: none;
+  border-radius: 8px;
+}
+body .container .list-university {
+  height: 70%;
+  background-color: grey;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}/*# sourceMappingURL=university.css.map */

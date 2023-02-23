@@ -30,4 +30,10 @@ body .container .header .header-form #form div {
 body .container .item {
   width: 100%;
   height: 70%;
+}
+body .container .item div {
+  display: flex;
+}
+body .container .item div div {
+  width: 25%;
 }/*# sourceMappingURL=sessionStorage.css.map */
