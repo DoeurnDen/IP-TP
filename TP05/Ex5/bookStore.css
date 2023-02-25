@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body .container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  gap: 10px;
+  background-color: antiquewhite;
+}
+body .container .input-data {
+  height: 100%;
+  width: 30%;
+  background-color: rgb(190, 190, 190);
+}
+body .container .input-data form {
+  padding: 10px;
+}
+body .container .output-data {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: aquamarine;
+  gap: 10px;
+  overflow-y: scroll;
+}
+body .container .output-data .box {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 10px;
+}
+body .container .output-data .box div:first-child {
+  min-height: 8rem;
+  width: 90%;
+  background-color: blueviolet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .output-data .box div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}/*# sourceMappingURL=bookStore.css.map */
