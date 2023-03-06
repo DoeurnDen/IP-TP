@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+}
+body .container {
+  width: 50%;
+  height: 70vh;
+  margin: auto;
+  display: flex;
+  background-color: antiquewhite;
+}
+body .container .pageLoad {
+  width: 10%;
+  height: 100%;
+}
+body .container .dataLoad {
+  width: 90%;
+  height: 100%;
+  background-color: rgb(167, 164, 164);
+  overflow-y: auto;
+}
+body .container .dataLoad .item {
+  background-color: aliceblue;
+  margin-top: 5px;
+  height: 5rem;
+}/*# sourceMappingURL=pagination.css.map */

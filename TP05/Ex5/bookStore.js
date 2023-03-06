@@ -2,7 +2,8 @@
 const url = 'https://jsonplaceholder.typicode.com/photos';
 
 const getData=()=>{
-    fetch(url).then(res=>res.json()).then(data=>{
+    fetch(url).then(async (res)=>{
+        let data = await (res.json())
         render(data)
     })
 }
