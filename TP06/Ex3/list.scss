@@ -22,9 +22,23 @@ body{
             background-color: rgb(167, 164, 164);
             overflow-y: auto;
             .item{
+                display: flex;
+                align-items: center;
                 background-color: aliceblue;
                 margin-top: 5px;
                 height: 5rem;
+                .beer{
+                    font-size: 3rem;
+                    width: 20%;
+                    text-align: center;
+                }
+                .data{
+                    width: 80%;
+                }
+                &:hover{
+                    color: aliceblue;
+                    background-color: rgb(31, 128, 255);
+                }
             }
         }
     }

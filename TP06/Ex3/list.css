@@ -26,7 +26,21 @@ body .container .dataLoad {
   overflow-y: auto;
 }
 body .container .dataLoad .item {
+  display: flex;
+  align-items: center;
   background-color: aliceblue;
   margin-top: 5px;
   height: 5rem;
+}
+body .container .dataLoad .item .beer {
+  font-size: 3rem;
+  width: 20%;
+  text-align: center;
+}
+body .container .dataLoad .item .data {
+  width: 80%;
+}
+body .container .dataLoad .item:hover {
+  color: aliceblue;
+  background-color: rgb(31, 128, 255);
 }/*# sourceMappingURL=list.css.map */

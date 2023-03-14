@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <!-- <link rel="stylesheet" href="./bookStore.css">
+    <script src="./bookStore.js" defer></script> -->
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+body .container {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  border: 2px solid black;
+  background-color: rgb(235, 235, 235);
+}
+body .container .input-data {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+body .container .input-data form {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+body .container .input-data form #add, body .container .input-data form #name, body .container .input-data form #category {
+  padding: 5px 20px;
+}
+body .container .input-data form #add:hover {
+  color: white;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+body .container .output-data {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1rem 0.7rem;
+  gap: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body .container .output-data .box {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem;
+  gap: 10px;
+}
+body .container .output-data .box div {
+  width: 100%;
+}
+body .container .output-data .box div:first-child {
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .container .output-data .box div:first-child img {
+  width: 100%;
+}
+body .container .output-data .box div:nth-child(2) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}/*# sourceMappingURL=bookStore.css.map */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-data">
+            <form action="#">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" placeholder="title"><br>
+                <label for="category" >Category</label><br>
+                <input type="text" id="category" placeholder="category"><br><br>
+                <input type="submit" value="Add" id="add">
+            </form>
+        </div>
+        <div class="output-data">
+           
+        </div>
+    </div>
+
+    <script>
+        
+const url = 'https://jsonplaceholder.typicode.com/photos';
+
+const getData=()=>{
+    fetch(url).then(async (res)=>{
+        let data = await (res.json())
+        render(data)
+    })
+}
+const render = (data)=>{
+    let tmp = "";
+    data.forEach(item => {
+        tmp += `
+            <div class="box">
+                <div>
+                    <img src="${item.thumbnailUrl}" alt="${item.albumId}-${item.title}">
+                </div>
+                <div>
+                    <p>${item.title}</p>
+                    <p>Album Id ${item.albumId}</p>
+                    <p>Category: ${item.id}</p>
+                    <p>
+                        <a href="detail?id=${item.id}">see</a>
+                    </p>
+                </div>
+            </div>
+        `
+    })
+    document.querySelector('.output-data').innerHTML = tmp
+}
+window.addEventListener('load',getData());
+
+
+
+
+    </script>
+</body>
+</html>
