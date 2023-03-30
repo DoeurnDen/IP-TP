@@ -1,3 +1,12 @@
+<script setup>
+import WelcomeItem from './WelcomeItem.vue'
+import DocumentationIcon from './icons/IconDocumentation.vue'
+import ToolingIcon from './icons/IconTooling.vue'
+import EcosystemIcon from './icons/IconEcosystem.vue'
+import CommunityIcon from './icons/IconCommunity.vue'
+import SupportIcon from './icons/IconSupport.vue'
+</script>
+
 <template>
   <div class="style">
     <form action="#" method="post">
@@ -25,18 +34,13 @@
   </div>
 </template>
 
-<script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
-
 <style>
   .style{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
-    /* align-items: start; */
+    align-items: flex-start;
   }
   form {
     width: 50rem;
@@ -44,26 +48,26 @@
     border: 3px solid #f1f1f1;
   }
 
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
 
-/* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+  /* Set a style for all buttons */
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
 
 button:hover {
   opacity: 0.8;
