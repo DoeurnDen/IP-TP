@@ -1,15 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import {computed} from 'vue'
+import { RouterLink, RouterView,useRoute } from 'vue-router'
+
+const isHomePage=computed(()=>{
+  return useRoute().path=='/home'?true:false
+})
 </script>
 
 <template>
-  <header>
+  <header v-if="!isHomePage">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Welcome" />
-
+      <h1>Welcome</h1>
+      <br>
+      <p>Authentication app~</p>
       <nav>
         <RouterLink to="/">Login</RouterLink>
         <RouterLink to="/register">Register</RouterLink>
@@ -36,10 +41,13 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  display: flex;
+  
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  text-decoration: underline;
+  
 }
 
 nav a.router-link-exact-active:hover {
