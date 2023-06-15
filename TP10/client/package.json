@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3001",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview "
   },
   "dependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.62.1",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
   },
