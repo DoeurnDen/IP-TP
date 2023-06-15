@@ -1,4 +1,71 @@
-let dataLoad = document.querySelector('.dataLoad')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./list.css">
+    <script src="./list.js" defer></script> -->
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+}
+body .container {
+  width: 50%;
+  height: 70vh;
+  margin: auto;
+  display: flex;
+  background-color: antiquewhite;
+}
+body .container .dataLoad {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(167, 164, 164);
+  overflow-y: auto;
+}
+body .container .dataLoad .item {
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
+  margin-top: 5px;
+  height: 5rem;
+}
+body .container .dataLoad .item .beer {
+  font-size: 3rem;
+  width: 20%;
+  text-align: center;
+}
+body .container .dataLoad .item .data {
+  width: 80%;
+  text-align: center;
+}
+body .container .dataLoad .item:hover {
+  color: aliceblue;
+  background-color: rgb(31, 128, 255);
+}
+body .container .detail {
+  width: 50%;
+  height: 100%;
+}/*# sourceMappingURL=list.css.map */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="pageLoad"></div> -->
+        <div class="dataLoad">
+        </div>
+        <div class="detail"></div>
+    </div>
+    <script>
+        let dataLoad = document.querySelector('.dataLoad')
 // let pageLoad = document.querySelector('.pageLoad')
 let page = 1
 let isScroll = true
@@ -65,3 +132,6 @@ function getData(){
     })
     document.querySelector('.detail').innerHTML = detail
 }
+    </script>
+</body>
+</html>

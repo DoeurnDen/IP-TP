@@ -1,0 +1,29 @@
+const express = require('express')
+const fs = require('fs');
+const app = express()
+const port = 3000
+
+app.get('/', function (req, res) {
+    fs.readFile('./src/index.html', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return res.send("There is a server error");
+      }
+      res.send(data);
+    });
+  })
+
+app.get('/detail', function (req, res) {
+  fs.readFile('./src/see.html', 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.send("There is a server error");
+    }
+    res.send(data);
+  });
+})
+
+app.listen(port, () =>{
+    console.log(`localhost:${port}`);
+    console.log(`Example app`);
+})
