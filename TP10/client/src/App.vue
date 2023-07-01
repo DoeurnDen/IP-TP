@@ -1,9 +1,12 @@
-<template>
-  <RouterView/>
-</template>
-
-<script>
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <RouterView />
+</template>
+
+<style scoped>
+
 </style>
