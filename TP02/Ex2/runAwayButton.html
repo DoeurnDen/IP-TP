@@ -1,61 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RUNAWAY</title>
-    <script src="tween.umd.js" defer></script>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            user-select: none;
+        body {
+            background-color: #1f1f1f;
         }
-        body{
-            background-color: black;
-        }
-        #btn{
-            height: 4rem;
-            width: 10rem;
-            border-radius: 5px;
-            font-size: 1.5rem;
-            border: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+
+        button {
+            padding: .5rem .7rem;
+            border-radius: 4px;
             cursor: pointer;
+        }
+
+        .moveable {
+            position: absolute;
+            top: var(--top);
+            left: var(--left);
+
+        }
+
+        .tranfromBack {
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
-<body>
-    <button id="btn">click me 🤣</button>
-    
-    <script>
-        
-        // const button = document.querySelector('#btn');
-        // button.addEventListener('mouseover',()=>{
-        //     button.style.backgroundColor = "red";
-        //     button.style.color = "white";
-        // })
-        
-        // button.addEventListener('mouseout',()=>{
-        //     button.style.backgroundColor = "";
-        //     button.style.color = "";
-        // })
 
-        let button = document.getElementById('btn')
-        let currcoords = {x: 0, y:0};
-        button,addEventListener('mouseover', ()=>{
-            
+<body>
+    <button style="--top:50%;--left:50%;" class="moveable tranfromBack">Click me🤣</button>
+    <script src="./tween.umd.js"></script>
+    <script>
+        const button = document.querySelector("button");
+
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time)
+        }
+        requestAnimationFrame(animate);
+
+        const MoveButton = (startX, startY, endX, endY) => {
+            const coords = {
+                x: startX,
+                y: startY
+            }
+
+            var tween = new TWEEN.Tween(coords)
+                .to({
+                    x: endX,
+                    y: endY
+                }, 700)
+                .easing(TWEEN.Easing.Quadratic.Out)
+                .onUpdate(() => {
+                    button.style.cssText = `--top:${coords.y}px;--left:${coords.x}px;`
+                })
+                .start()
+        }
+        button.addEventListener("click", () => {
+            movebtn()
         })
-        function generateNextpos(){
-            const xmax = 400 , xmin = 0;
-            const ymax = 400, ymin = 0;
+
+        button.addEventListener("mouseover", () => {
+            movebtn()
+        })
+        button.addEventListener("mouseenter", () => {
+            movebtn()
+        })
+        const movebtn = () => {
+            var x, y;
+            y = (Math.random() * document.documentElement.clientHeight * 0.9);
+            x = (Math.random() * document.documentElement.clientHeight * 0.9);
+            while (((x == button.offsetLeft || y == button.offsetTop))) {
+                y = (Math.random() * document.documentElement.clientHeight);
+                x = (Math.random() * document.documentElement.clientWidth);
+            }
+            MoveButton(button.offsetLeft, button.offsetTop, x, y)
         }
 
     </script>
-</body>
+
 </html>
